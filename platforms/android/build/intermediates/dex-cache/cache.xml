@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/b2d9cfa3d004de887a412199173d6139076e5d88/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_a8b52c95532af66493bbbc3179bfbdc1cc265077.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/usr/local/share/android-sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/support-annotations-26.0.0-alpha1_1cef49fa34db26a7f4311ee0546f266f0ec4995b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/620d855a22c0f57bfb89044a5c2e1685df804789/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_667b11979ec23239d368258ec9fb2841d8c0ffd9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/8785b80cb5d50800208e294df914c0c0cca74225/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_ca1d2221b4956cede3c2488a6871c8610b67583f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/9590251ba7d80bee5a3a60aa90554ddbdd198098/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_d9b990de12248bf19ac6d79be85385c4f47643fb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/d2c87568cacc3dc9ae4d4ba4acc90cae8032a054/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="746274223beb11b1cda7854d7eec3038695c2c93">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_7f776298f46c0c0eb444075188d8b93ba81b3d86.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/8fe45a22b68ac60ae7c0b86a3f119ceeed7cf321/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cddcd0fb93bc70e27325f2f715b2710332004ebb">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_4bcbe5c1dac5f5cc5d8258f65ce2c9423e0b754e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/fee55fdc4e9bd3123e22153a710d9660c1d37e5f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_90a4f7301368a27c0fdb1a5190d3dd08c1e58dd0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/82a06b5b57dbb923eceed0637867dd9cd1c4e734/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_24c726bdd4121195e0b843faf9880c5d43fbe833.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/96835550c04abc054811483711ae39c7dfaff62d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6a022bf00ccd0948a8180c505e8e458bbddd43a6">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_0145db0b953d2450bb3362e15ebc4d0b9d8f1305.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/bea7368d4c06c5d525396afd066c3359171dd598/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ed69cd5603304a6fc9a36a94c8be977a1d0e4857">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_cb559c3e4d0392f7f2f101a4c50000ddc55c992c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/31e898192a33cec7650f205cd5575e00d7796204/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_3e10bd7f977a43cbfc15cdd60c9cc009a9509199.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/87e95281a86330802aecb21498be0d14f6bc761e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_4096b89c80ecd8c2a047edac4a30a8a4454e4a13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/09951b9d766f54ae85fa06a6c410a5eb25076f32/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_e7c763d385570a3f027b1a83b219d2a904c71200.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/CemosBeast/.android/build-cache/2ac227c607c6f0b0577405e1eda8feab95ff1e05/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="/Users/CemosBeast/Desktop/Projects/hqTurk/Groceries/platforms/android/app/build/intermediates/pre-dexed/debug/classes_ce2ef0672786d07e695d0a5d7a3903694e269512.jar" />
+    </item>
+
+</items>
