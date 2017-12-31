@@ -1,16 +1,31 @@
-ListView {
-    margin: 5;
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+* {
+    font-size: 25%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: white;
 }
-Label {
-    margin: 10;
-    horizontal-align: left;
-    vertical-align: center;
+.Header{
+    color: white;
+    font-size: 30%;
+    height: 10%;
 }
-TextField {
-    border-width: 5;
-    border-style: solid;
-    border-color: #034793;
+.QuestionBox{
+    height: 40%;
+    background-color: blue;
+    border-radius: 20%;
 }
-Image {
-    margin: 10;
+.Question{
+    width: 80%;
+    height: 100%;
+}
+Button {
+    border-style: none;
+    border-color: black;
+    background-color: blue;
+    height: 7%;
+    border-radius: 90%;
+    /*horizontal-align: center;*/
 }

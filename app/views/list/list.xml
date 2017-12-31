@@ -1,3 +1,12 @@
-<Page>
-
+<Page loaded="loaded" style.backgroundColor='black'>
+    <StackLayout>
+        <Label class='Header' text="{{ header }}" />
+        <StackLayout class='QuestionBox'> 
+            <Label class='Question' text="{{ question }}" textWrap="true" />
+        </StackLayout>
+        <Label text='   '/>
+        <Button text="{{ answer1 }}" id="1"/>
+        <Button text="{{ answer2 }}" id="2"/>
+        <Button text="{{ answer3 }}" id="3"/>
+    </StackLayout>
 </Page>

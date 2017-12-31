@@ -1,5 +1,6 @@
 var frameModule = require("ui/frame");
 var UserViewModel = require("../../shared/view-models/user-view-model");
+var dialogsModule = require("ui/dialogs");
 
 var user = new UserViewModel();
 var page;
@@ -11,10 +12,21 @@ exports.loaded = function(args) {
 };
 
 exports.signIn = function() {
-    user.login();
+    user.login()
+    .then(function(response) {
+        if (response == 'Access Granted'){
+            frameModule.topmost().navigate("views/list/list");
+        }
+        else {
+            dialogsModule.alert({
+                message: response,
+                okButtonText: "OK"
+            });
+        }
+        return Promise.reject();
+    });
 };
 
 exports.register = function() {
-    var topmost = frameModule.topmost();
-    topmost.navigate("views/register/register");
+    frameModule.topmost().navigate("views/register/register");
 };

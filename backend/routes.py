@@ -4,7 +4,7 @@ from flask import request
 
 @app.route('/api/login', methods = ['POST'])
 def index():
-    users = { 'cozercem@gmail.com' : '110296'}
+    users = { '1' : '1'}
     json = request.get_json()
     data = {}
 
@@ -13,10 +13,10 @@ def index():
             data['message'] = 'Access Granted' 
             print 'Access granted'
         else:
-            data['message'] = 'Wrong Password'
+            data['message'] = 'Invalid Password'
             print 'Wrong password'
     else:
-        data['message'] = 'Email not registered'
+        data['message'] = 'Unfortunately, we could not find your account. You can register by clicking on \'Sign Up\''
         print 'Email not registered'
 
     response = jsonify(data)

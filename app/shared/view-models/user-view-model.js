@@ -23,10 +23,8 @@ function User(info) {
                 "Content-Type": "application/json"
             }
         })
-        .then(handleErrors)
         .then((response) => response.json())
-        .then((data) => JSON.stringify(data))
-        .then(console.log)
+        .then((data) => (data.message))
     };
 
     viewModel.register = function() {

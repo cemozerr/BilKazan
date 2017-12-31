@@ -5,6 +5,6 @@
         <TextField hint="Password" secure="true" text="{{ password }}" />
 
         <Button text="Sign in" tap="signIn" />
-        <Button text="Sign up for Groceries" class="link" tap="register" />
+        <Button text="Sign up" class="link" tap="register" />
     </StackLayout>
 </Page>
