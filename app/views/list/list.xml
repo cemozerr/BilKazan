@@ -1,6 +1,6 @@
-<Page loaded="loaded" style.backgroundColor='black'>
+<Page loaded="loaded">
     <StackLayout>
-        <Label class='Header' text="{{ header }}" />
+        <Label class='Header' text="{{ questionNumber }}" />
         <StackLayout class='QuestionBox'> 
             <Label class='Question' text="{{ question }}" textWrap="true" />
         </StackLayout>

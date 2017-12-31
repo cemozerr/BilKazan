@@ -8,7 +8,7 @@
     color: white;
 }
 .Header{
-    color: white;
+    color: blue;
     font-size: 30%;
     height: 10%;
 }
@@ -27,5 +27,4 @@ Button {
     background-color: blue;
     height: 7%;
     border-radius: 90%;
-    /*horizontal-align: center;*/
 }

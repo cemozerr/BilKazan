@@ -23,6 +23,7 @@ function User(info) {
                 "Content-Type": "application/json"
             }
         })
+        .then((response) => handleErrors(response))
         .then((response) => response.json())
         .then((data) => (data.message))
     };
