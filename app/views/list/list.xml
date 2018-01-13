@@ -5,8 +5,8 @@
             <Label class='Question' text="{{ question }}" textWrap="true" />
         </StackLayout>
         <Label text='   '/>
-        <Button text="{{ answer1 }}" id="1"/>
-        <Button text="{{ answer2 }}" id="2"/>
-        <Button text="{{ answer3 }}" id="3"/>
+        <Button text="{{ answer1 }}" tap="changeColor" id='0'/>
+        <Button text="{{ answer2 }}" tap="changeColor" id='1'/>
+        <Button text="{{ answer3 }}" tap="changeColor" id='2'/>
     </StackLayout>
 </Page>

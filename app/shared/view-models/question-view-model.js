@@ -19,9 +19,6 @@ function Question(info) {
         .then((response) => handleErrors(response))
         .then((response) => response.json())
         .then(function(response) {
-            console.log(response.questionNumber);
-            console.log(response.question);
-            console.log(response.answer1);
             viewModel.questionNumber = response.questionNumber;
             viewModel.question = response.question;
             viewModel.answer1 = response.answer1;
