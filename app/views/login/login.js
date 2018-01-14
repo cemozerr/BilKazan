@@ -15,7 +15,7 @@ exports.signIn = function() {
     user.login()
     .then(function(response) {
         if (response == 'Access Granted'){
-            frameModule.topmost().navigate("views/list/list");
+            frameModule.topmost().navigate("views/question/question");
         }
         else {
             dialogsModule.alert({

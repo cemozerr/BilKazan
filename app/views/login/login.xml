@@ -1,10 +1,11 @@
 <Page loaded="loaded">
     <StackLayout orientation="vertical">
-        <Image src="res://logo" stretch="none" horizontalAlignment="center" ></Image>
+        <Image></Image>
+        <Image src="res://logo" stretch="none" horizontalAlignment="center" verticalAlignment="center" ></Image>
         <TextField id="email" text="{{ email }}" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
         <TextField hint="Password" secure="true" text="{{ password }}" />
 
-        <Button text="Sign in" tap="signIn" />
-        <Button text="Sign up" class="link" tap="register" />
+        <Button text="Giriş yap" tap="signIn" />
+        <Button text="Kayıt ol" class="link" tap="register" />
     </StackLayout>
 </Page>
