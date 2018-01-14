@@ -42,13 +42,9 @@ function startGame(){
     correctButton = page.getViewById("1");
     // refresh questions 3 times every interval
     refreshQuestion();
-    setTimeout(refreshQuestion, 500);
-    setTimeout(refreshQuestion, 1000);
 
     // refresh answers 3 times every interval answerWaitTime after question refresh
     setTimeout(refreshAnswer, answerWaitTime);
-    setTimeout(refreshAnswer, answerWaitTime + 500);
-    setTimeout(refreshAnswer, answerWaitTime + 1000);
 }
 
 exports.loaded = function(args) {
