@@ -5,8 +5,8 @@ var fetchModule = require("fetch");
 var page;
 var questionView = new QuestionViewModel();
 var timeToStart = 'NA';
-var correctAnswer;
-var correctButton;
+var answerChosen;
+var answerButtons = [];
 
 const interval = 8000;
 const answerWaitTime = 4000;
@@ -16,14 +16,16 @@ function showAnswer(){
             .then((response) => handleErrors(response))
             .then((response) => response.json())
             .then(function(response) {
-                correctAnswer = response.correctAnswer;
-                correctButton = page.getViewById(correctAnswer);
-                correctButton.backgroundColor = "green";
+                // set the button containing the correct answer green
+                page.getViewById(response.correctAnswer).backgroundColor = "green";
             });
 }
 
 function showQuestion(){
-    correctButton.backgroundColor = "blue";
+    if (answerButtons.length > 0){
+        answerButtons.map((button) => button.backgroundColor = "blue");
+    }
+    answerChosen = 0;
     questionView.getQuestion();
 }
 
@@ -38,18 +40,15 @@ function refreshAnswer(){
 }
 
 function startGame(){
-    // QUICK FIX 
-    correctButton = page.getViewById("1");
-    // refresh questions 3 times every interval
     refreshQuestion();
-
-    // refresh answers 3 times every interval answerWaitTime after question refresh
     setTimeout(refreshAnswer, answerWaitTime);
 }
 
 exports.loaded = function(args) {
     page = args.object;
     page.bindingContext = questionView;
+    
+    answerButtons = [page.getViewById('0'), page.getViewById('1'), page.getViewById('2')];
 
     // Set timeout to call start game, if timeToStart hasn't been set
     if (timeToStart == 'NA') {
@@ -64,8 +63,12 @@ exports.loaded = function(args) {
 };
 
 exports.changeColor = function(args) {
+    if (answerChosen == 1) {
+        return;
+    }
     var btn = args.object;
     btn.backgroundColor = "black";
+    answerChosen = 1;
 }
 
 function handleErrors(response) {
