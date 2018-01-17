@@ -6,7 +6,7 @@ from datetime import datetime
 from datetime import timedelta
 
 #startTime = datetime(2018,1,13,11,15) 
-startTime = datetime.now() + timedelta(seconds = 5)
+startTime = datetime.now() + timedelta(seconds = 2)
 interval = 8000
 
 questionDB = {
@@ -104,6 +104,7 @@ def getAnswer():
     questionNumber = getQuestionNumber() 
 
     data['correctAnswer'] = questionDB[questionNumber]['correctAnswer'] 
+    data['questionNumber'] = questionDB[questionNumber]['questionNumber']
     response = jsonify(data)
     response.status_code = 200
     print('Sending response')

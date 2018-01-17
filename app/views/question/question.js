@@ -7,8 +7,10 @@ var questionView = new QuestionViewModel();
 var timeToStart = 'NA';
 var answerChosen;
 var answerButtons = [];
+var intervals = [];
 
-const interval = 8000;
+const numQuestions = '6'; 
+const questionChangeTime = 8000;
 const answerWaitTime = 4000;
 
 function showAnswer(){
@@ -18,12 +20,19 @@ function showAnswer(){
             .then(function(response) {
                 // set the button containing the correct answer green
                 page.getViewById(response.correctAnswer).backgroundColor = "green";
+                
+                // if the game has ended, clear the intervals to stop asking 
+                // backend for updates
+                if (response.questionNumber == numQuestions) {
+                    clearIntervals();
+                    // TODO: switch to game finished page
+                }
             });
 }
 
 function showQuestion(){
     if (answerButtons.length > 0){
-        answerButtons.map((button) => button.backgroundColor = "blue");
+        answerButtons.forEach((button) => button.backgroundColor = "blue");
     }
     answerChosen = 0;
     questionView.getQuestion();
@@ -31,12 +40,16 @@ function showQuestion(){
 
 function refreshQuestion(){
     showQuestion();
-    setInterval(showQuestion, interval);
+    intervals.push(setInterval(showQuestion, questionChangeTime));
 }
 
 function refreshAnswer(){
     showAnswer();
-    setInterval(showAnswer, interval);
+    intervals.push(setInterval(showAnswer, questionChangeTime));
+}
+
+function clearIntervals(){
+    intervals.forEach((interval) => clearInterval(interval));
 }
 
 function startGame(){
