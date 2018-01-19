@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+* {
+    font-size: 25%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+.coverImage {
+    background-image: url('res://signup');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+}
+Label {
+    height: 80%;
+}
+Button {
+    border-style: none;
+    border-color: black;
+    background-color: blue;
+    height: 10%;
+    width: 80%;
+    border-radius: 90%;
+}

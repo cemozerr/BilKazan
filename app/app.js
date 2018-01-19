@@ -1,3 +1,4 @@
 var applicationModule = require("application");
-applicationModule.start({ moduleName: "views/login/login" });
+console.log("Application starting");
+applicationModule.start({ moduleName: "views/signup/signup" });
 

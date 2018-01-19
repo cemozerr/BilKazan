@@ -1,0 +1,6 @@
+<Page class="coverImage" loaded="loaded"  xmlns="http://www.nativescript.org/tns.xsd" actionBarHidden="true">
+    <StackLayout orientation="vertical">
+        <Label text='   '/>
+        <Button text="Oynamak için kayıt ol!" tap="signup"/>
+    </StackLayout>
+</Page>
