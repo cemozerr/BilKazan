@@ -4,6 +4,8 @@ from flask import jsonify
 from flask import request
 from datetime import datetime
 from datetime import timedelta
+from flask_login import current_user, login_user
+from backend.models import User
 
 #startTime = datetime(2018,1,13,11,15) 
 startTime = datetime.now() + timedelta(seconds = 2)
@@ -62,20 +64,18 @@ questionDB = {
 
 @app.route('/api/login', methods = ['POST'])
 def login():
-    users = { '1' : '1'}
-    json = request.get_json()
     data = {}
+    json = request.get_json()
 
-    if json['email'] in users:
-        if json['password'] == users[json['email']]:
-            data['message'] = 'Access Granted' 
-            print('Access granted')
-        else:
-            data['message'] = 'Invalid Password'
-            print('Wrong password')
+    if current_user.is_authenticated:
+        data['message'] = 'Access Granted' 
+
+    user = User.query.filter_by(username=json['email']).first()
+    if user is None or not user.check_password(json['password']):
+        data['message'] = 'Invalid Password'
     else:
-        data['message'] = 'Unfortunately, we could not find your account. You can register by clicking on \'Sign Up\''
-        print('Email not registered')
+        login_user(user)
+        data['message'] = 'Access Granted' 
 
     response = jsonify(data)
     response.status_code = 200
@@ -131,5 +131,3 @@ def getQuestionNumber():
     if questionNumber > 5:
         return 5
     return questionNumber
-
-app.run()

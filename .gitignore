@@ -1,4 +1,5 @@
 *.pyc
+*.db
 node_modules/
 platforms/
 hooks/
