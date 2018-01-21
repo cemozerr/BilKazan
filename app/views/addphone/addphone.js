@@ -15,10 +15,10 @@ exports.onDone = function(args) {
         phoneView.sendvercode()
         .then(function() {
             	frameModule.topmost().navigate({
-                	moduleName: "views/question/question",
+                	moduleName: "views/verifyphone/verifyphone",
                 	context: { phone: phoneView.phone }
 		});
-        });
+        }); 
 }
 
 

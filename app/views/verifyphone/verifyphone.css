@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+* {
+    font-size: 25%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+Label {
+    font-size: 15%;
+    font-weight: normal;
+}
+

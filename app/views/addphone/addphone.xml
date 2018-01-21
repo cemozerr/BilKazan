@@ -1,9 +1,9 @@
 <Page loaded="loaded"  xmlns="http://www.nativescript.org/tns.xsd">
-    <NavigationButton visibility="collapse"/>
     <ActionBar title="Telefon numaranı gir">
         <ActionItem tap="onDone" ios.systemIcon="0" android.systemIcon="ic_menu_save" ios.position="right"/>
     </ActionBar>
     <StackLayout orientation="vertical">
+        <Label text='   '/>
         <Label text='   '/>
         <TextField id='phone' text="{{ phone }}" hint="Ornek: 05322629036" KeyboardType="phone"  autocorrect="false" autocapitalizationType="none" />
     </StackLayout>

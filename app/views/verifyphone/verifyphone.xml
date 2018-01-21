@@ -1,0 +1,10 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="navigatedTo">
+    <ActionBar title="Telefon numaranı doğrula">
+        <ActionItem tap="onDone" ios.systemIcon="0" android.systemIcon="ic_menu_save" ios.position="right"/>
+    </ActionBar>
+    <StackLayout orientation="vertical">
+        <Label text='     '/>
+        <Label text='Sana yolladığımız 6 haneli kodu gir'/>
+        <TextField id='code' text="{{ code }}" KeyboardType="phone"  autocorrect="false" autocapitalizationType="none" />
+    </StackLayout>
+</Page>
