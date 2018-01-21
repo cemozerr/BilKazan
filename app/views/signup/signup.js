@@ -1,3 +1,4 @@
+var frameModule = require("ui/frame");
 var page;
 
 exports.loaded = function(args) {
@@ -5,4 +6,8 @@ exports.loaded = function(args) {
 }
 
 exports.signup = function(args) {
+    frameModule.topmost().navigate({
+        moduleName:"views/addphone/addphone", 
+        animated: true 
+    });
 }

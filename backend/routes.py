@@ -6,10 +6,12 @@ from datetime import datetime
 from datetime import timedelta
 from flask_login import current_user, login_user
 from backend.models import User
+from .confirmation_sender import send_confirmation_code
 
 #startTime = datetime(2018,1,13,11,15) 
 startTime = datetime.now() + timedelta(seconds = 2)
 interval = 8000
+phoneCodeDict = {}
 
 questionDB = {
         0:{
@@ -61,6 +63,32 @@ questionDB = {
             'correctAnswer' : '0'
         }
 }
+
+@app.route('/api/sendvercode', methods = ['POST'])
+def sendverificaton():
+    data = {}
+    json = request.get_json()
+    send_confirmation_code(json['phone'], phoneCodeDict)
+
+    response = jsonify(data)
+    response.status_code = 200
+    print('Sending response')
+    return response
+
+@app.route('/api/verify', methods = ['POST'])
+def verifyphone():
+    data = {}
+    json = request.get_json()
+    if json['verificationcode'] == phoneCodeDict[json['phonenumber']]:
+        data['verification'] = '1'
+    else:
+        data['verification'] = '0'
+        
+    response = jsonify(data)
+    response.status_code = 200
+    print('Sending response')
+    return response
+
 
 @app.route('/api/login', methods = ['POST'])
 def login():
