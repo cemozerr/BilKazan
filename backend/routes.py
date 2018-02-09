@@ -79,15 +79,20 @@ def sendverificaton():
 def verifyphone():
     data = {}
     json = request.get_json()
+
     if json['code'] == phoneCodeDict[json['phone']]:
-        data['message'] = 'Access Granted'
+        user = User.query.filter_by(phonenumber=json['phone']).first()
+        if user is None:
+            data['message'] = 'New Phone Being Registered'
+        else:
+            data['message'] = 'Access Granted'
         del phoneCodeDict[json['phone']]
-        print('Access granted')
     else:
-        data['verification'] = 'Code Wrong'
-        
+        data['message'] = 'Code Wrong'
+
     response = jsonify(data)
     response.status_code = 200
+    print(data['message'])
     print('Sending response')
     return response
 
