@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+Page{
+    background-color:blue;
+}
+* {
+    text-align: center;
+}
+.Instruction{
+    font-size: 25%;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    height: 12%;
+    color: white;
+}
+Label {
+    height: 10%;
+}
+TextField {
+    height: 12%;
+    font-size: 25%;
+    font-weight: bold;
+    border-radius: 90%;
+    background-color: white;
+    color: blue;
+}
+.font-awesome{
+    color: white;
+    font-size: 60%;
+    border-color: blue;
+    border-radius: 90%;
+}

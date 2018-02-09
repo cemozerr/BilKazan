@@ -19,7 +19,7 @@ exports.onDone = function(args) {
         .then(function(response) {
             if (response == 'Access Granted'){
             	frameModule.topmost().navigate({
-                	moduleName: "views/question/question",
+                	moduleName: "views/adduser/adduser",
 		});
             }
             else {

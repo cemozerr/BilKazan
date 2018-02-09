@@ -1,11 +1,8 @@
 @import url('~/platform.css');
+/*
 Page {
     background-color: white;
     font-size: 17;
-}
-TextField {
-    margin: 10;
-    padding: 10;
 }
 Image {
     margin-top: 20;
@@ -13,7 +10,24 @@ Image {
     margin-right: 0;
     margin-bottom: 80;
 }
-Button {
+*/
+TextField {
     margin: 10;
     padding: 10;
+}
+.v-line {
+    width: 1;
+    background-color: red;
+}
+
+.h-line {
+    height: 2;
+    background-color: gray;
+}
+
+Button {
+    padding: 10;
+}
+.font-awesome {
+    font-family: "FontAwesome";
 }

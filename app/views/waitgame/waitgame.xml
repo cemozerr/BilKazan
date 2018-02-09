@@ -1,0 +1,15 @@
+<Page loaded="loaded"  xmlns="http://www.nativescript.org/tns.xsd" actionBarHidden="true">
+    <StackLayout orientation="vertical">
+        <Label text="" style="height:10%" />
+        <Label class='nextGameTitle' text="SONRAKİ OYUN" />
+        <Label class='nextGame' text="Yarın 20:00" />
+        <Label class='nextGame' text="2500 TL" />
+        <Label text="" style="height:10%" />
+        <StackLayout orientation="vertical" class="whitebox">
+            <Label class='username' text="cemozer" />
+            <StackLayout class="h-line"></StackLayout>
+            <Label class='balanceTitle' text="BAKİYE" />
+            <Label class='balance' text="15 TL" />
+        </StackLayout>
+    </StackLayout>
+</Page>

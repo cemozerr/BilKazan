@@ -9,7 +9,7 @@ from backend.models import User
 from .confirmation_sender import send_confirmation_code
 
 #startTime = datetime(2018,1,13,11,15) 
-startTime = datetime.now() + timedelta(seconds = 2)
+startTime = datetime.now() + timedelta(seconds = 25)
 interval = 8000
 phoneCodeDict = {}
 
@@ -91,6 +91,20 @@ def verifyphone():
     print('Sending response')
     return response
 
+@app.route('/api/registerUser', methods = ['POST'])
+def registeruser():
+    data = {}
+    json = request.get_json()
+
+    if json['username'] == '1':
+        data['message'] = 'Access Granted'
+    else:
+        data['message'] = 'Username is taken'
+
+    response = jsonify(data)
+    response.status_code = 200
+    print('Sending response')
+    return response 
 
 @app.route('/api/login', methods = ['POST'])
 def login():

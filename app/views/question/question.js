@@ -4,7 +4,7 @@ var fetchModule = require("fetch");
 
 var page;
 var questionView = new QuestionViewModel();
-var timeToStart = 'NA';
+var timeToStart;
 var answerChosen;
 var answerButtons = [];
 var intervals = [];
@@ -57,22 +57,14 @@ function startGame(){
     setTimeout(refreshAnswer, answerWaitTime);
 }
 
-exports.loaded = function(args) {
+exports.navigatedTo = function(args) {
     page = args.object;
     page.bindingContext = questionView;
     
     answerButtons = [page.getViewById('0'), page.getViewById('1'), page.getViewById('2')];
 
-    // Set timeout to call start game, if timeToStart hasn't been set
-    if (timeToStart == 'NA') {
-        fetchModule.fetch(config.apiUrl + "timeToStart")
-            .then((response) => handleErrors(response))
-            .then((response) => response.json())
-            .then(function(response) {
-                timeToStart = response.timeToStart;
-                setTimeout(startGame, timeToStart);
-            });
-    }
+    timeToStart = page.navigationContext.timeToStart;
+    setTimeout(startGame, timeToStart);
 };
 
 exports.changeColor = function(args) {

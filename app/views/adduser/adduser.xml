@@ -1,0 +1,10 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" actionBarHidden="true" loaded='loaded'>
+    <StackLayout orientation="vertical">
+        <Label text='   '/>
+        <Label text='   '/>
+        <Label text='   '/>
+        <Label class='Instruction' text="Bir kullanıcı adı seçin" />
+        <TextField id='username' autocorrect="false" autocapitalizationType="none" />
+        <Button text="&#xf0a9;" class="font-awesome" tap='adduser'/>
+    </StackLayout>
+</Page>
