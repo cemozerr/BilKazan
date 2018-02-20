@@ -1,6 +1,9 @@
+var WaitgameViewModel = require("../../shared/view-models/waitgame-view-model");
 var fetchModule = require("fetch");
 var config = require("../../shared/config");
 var frameModule = require("ui/frame");
+
+var waitgameView = new WaitgameViewModel();
 
 // 5 seconds countdown
 var countdownTime = 5000;
@@ -24,7 +27,10 @@ function startCountdown(){
         });
 }
 
-exports.loaded = function(args) {
+exports.pageNavigatedTo = function(args) {
+    var page = args.object;
+    page.bindingContext = waitgameView;
+    waitgameView.getData();
     startCountdown();
     setInterval(startCountdown, 30000);
 }

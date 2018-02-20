@@ -1,32 +1,42 @@
-var page;
+var appSettings = require("application-settings");
 var frameModule = require("ui/frame");
 var config = require("../../shared/config");
 var fetchModule = require("fetch");
 var observableModule = require("data/observable");
 
 var codeView = new code();
-var phone;
 
-exports.navigatedTo = function(args) {
-    page = args.object;
-    phone = page.navigationContext.phone;
-    console.log(phone);
+exports.pageNavigatedTo = function(args) {
+    var page = args.object;
     page.bindingContext = codeView;
+    phone = page.navigationContext.phone;
 }
 
 exports.onDone = function(args) {
         codeView.verify()
         .then(function(response) {
-            if (response == 'Access Granted'){
-            	frameModule.topmost().navigate({
-                	moduleName: "views/adduser/adduser",
-		});
-            }
-            else {
+            console.log(response);
+            if (response == 'Code Wrong'){
                 dialogsModule.alert({
                     message: response,
                     okButtonText: "OK"
                 });
+            }
+            else {
+                appSettings.setString("phonenumber", phone);
+                if (response == 'Access Granted'){
+                    console.log('inside access granted');
+            	    frameModule.topmost().navigate({
+                        moduleName: "views/waitgame/waitgame",
+                        clearHistory: true,
+                        animated: true
+                    });
+                }
+                else {
+                    frameModule.topmost().navigate({
+                	moduleName: "views/adduser/adduser"
+		    });
+                }
             }
         });
 }

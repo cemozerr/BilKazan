@@ -1,4 +1,4 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="navigatedTo">
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="pageNavigatedTo">
     <ActionBar title="Telefon numaranı doğrula">
         <ActionItem tap="onDone" ios.systemIcon="0" android.systemIcon="ic_menu_save" ios.position="right"/>
     </ActionBar>

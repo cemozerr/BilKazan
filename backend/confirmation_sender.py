@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from twilio.rest import Client
 from . import app
 import random
@@ -5,13 +6,12 @@ import random
 
 def send_confirmation_code(to_number, phoneCodeDict):
     verification_code = generate_code()
-    phoneCodeDict[str(to_number)] = verification_code
     send_sms(to_number, verification_code)
     return verification_code
 
 
 def generate_code():
-    return str(random.randrange(100000, 999999))
+    return str(random.randrange(1000, 9999))
 
 
 def send_sms(to_number, body):

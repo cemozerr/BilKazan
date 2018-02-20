@@ -9,6 +9,8 @@ from backend.models import User
 from .confirmation_sender import send_confirmation_code
 
 #startTime = datetime(2018,1,13,11,15) 
+nextGameDateTime = 'Yarin 20:00'
+nextGamePrize = '2500 TL'
 startTime = datetime.now() + timedelta(seconds = 25)
 interval = 8000
 phoneCodeDict = {}
@@ -68,7 +70,8 @@ questionDB = {
 def sendverificaton():
     data = {}
     json = request.get_json()
-    send_confirmation_code(json['phone'], phoneCodeDict)
+    verification_code =  send_confirmation_code(json['phone'], phoneCodeDict)
+    phoneCodeDict[str(json['phone'])] = verification_code
 
     response = jsonify(data)
     response.status_code = 200
@@ -79,13 +82,15 @@ def sendverificaton():
 def verifyphone():
     data = {}
     json = request.get_json()
+    #print(json['phone'])
 
-    if json['code'] == phoneCodeDict[json['phone']]:
+    if json['code'] == phoneCodeDict[str(json['phone'])]:
         user = User.query.filter_by(phonenumber=json['phone']).first()
         if user is None:
             data['message'] = 'New Phone Being Registered'
         else:
             data['message'] = 'Access Granted'
+        print('deleting phone from phoneCodeDict');
         del phoneCodeDict[json['phone']]
     else:
         data['message'] = 'Code Wrong'
@@ -111,20 +116,16 @@ def registeruser():
     print('Sending response')
     return response 
 
-@app.route('/api/login', methods = ['POST'])
+@app.route('/api/getWaitGameData', methods = ['POST'])
 def login():
     data = {}
     json = request.get_json()
 
-    if current_user.is_authenticated:
-        data['message'] = 'Access Granted' 
-
-    user = User.query.filter_by(username=json['email']).first()
-    if user is None or not user.check_password(json['password']):
-        data['message'] = 'Invalid Password'
-    else:
-        login_user(user)
-        data['message'] = 'Access Granted' 
+    user = User.query.filter_by(phonenumber=unicode(json['phone'])).first()
+    data['nextGameDateTime'] = nextGameDateTime
+    data['nextGamePrize'] = nextGamePrize;
+    data['username'] = user.username
+    data['userBalance'] = user.balance
 
     response = jsonify(data)
     response.status_code = 200
