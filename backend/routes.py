@@ -11,7 +11,7 @@ from .confirmation_sender import send_confirmation_code
 #startTime = datetime(2018,1,13,11,15) 
 nextGameDateTime = 'Yarin 20:00'
 nextGamePrize = '2500 TL'
-startTime = datetime.now() + timedelta(seconds = 25)
+startTime = datetime.now() + timedelta(seconds = 30)
 interval = 8000
 phoneCodeDict = {}
 
