@@ -23,8 +23,8 @@ exports.onDone = function(args) {
                 });
             }
             else {
-                appSettings.setString("phonenumber", phone);
                 if (response == 'Access Granted'){
+                    appSettings.setString("phonenumber", phone);
                     console.log('inside access granted');
             	    frameModule.topmost().navigate({
                         moduleName: "views/waitgame/waitgame",
@@ -34,7 +34,8 @@ exports.onDone = function(args) {
                 }
                 else {
                     frameModule.topmost().navigate({
-                	moduleName: "views/adduser/adduser"
+                	moduleName: "views/adduser/adduser",
+                        context: { phone: phone }
 		    });
                 }
             }

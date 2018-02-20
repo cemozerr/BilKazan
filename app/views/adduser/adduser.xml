@@ -1,4 +1,4 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" actionBarHidden="true" loaded='loaded'>
+<Page xmlns="http://www.nativescript.org/tns.xsd" actionBarHidden="true" navigatedTo='pageNavigatedTo'>
     <StackLayout orientation="vertical">
         <Label text='   '/>
         <Label text='   '/>

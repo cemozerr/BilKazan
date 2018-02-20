@@ -1,14 +1,17 @@
 var application = require('application');
+var appSettings = require("application-settings");
 var frameModule = require("ui/frame");
 var dialogsModule = require("ui/dialogs");
 var fetchModule = require("fetch");
 var config = require("../../shared/config");
 var view = require("ui/core/view");
 var page;
+var phone;
 var usernameView;
 
-exports.loaded = function(args) {
+exports.pageNavigatedTo = function(args) {
     page = args.object;
+    phone = page.navigationContext.phone;
     usernameView = view.getViewById(page, "username");
 }
 
@@ -16,7 +19,8 @@ exports.adduser = function(args){
     fetchModule.fetch(config.apiUrl + "registerUser", {
         method: "POST",
         body: JSON.stringify({
-            username: usernameView.text
+            username: usernameView.text,
+            phone: phone 
         }),
         headers: {
             "Content-Type": "application/json"
@@ -27,6 +31,7 @@ exports.adduser = function(args){
     .then((data) => (data.message))
     .then((message) => {
         if(message == 'Access Granted'){
+            appSettings.setString("phonenumber", phone)
             frameModule.topmost().navigate("views/waitgame/waitgame");
         }
         else{

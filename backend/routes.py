@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from backend import app 
+from backend import db
 from flask import jsonify
 from flask import request
 from datetime import datetime
@@ -106,8 +107,15 @@ def registeruser():
     data = {}
     json = request.get_json()
 
-    if json['username'] == '1':
+    if User.query.filter_by(username=unicode(json['username'])).first() is None:
         data['message'] = 'Access Granted'
+        newUser = User(
+                username=unicode(json['username']),
+                phonenumber=unicode(json['phone']),
+                balance=0
+                )
+        db.session.add(newUser)
+        db.session.commit()
     else:
         data['message'] = 'Username is taken'
 
