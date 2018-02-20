@@ -6,7 +6,7 @@ from flask import request
 from datetime import datetime
 from datetime import timedelta
 from flask_login import current_user, login_user
-from backend.models import User
+from backend.models import User, Question
 from .confirmation_sender import send_confirmation_code
 
 #startTime = datetime(2018,1,13,11,15) 
@@ -15,57 +15,9 @@ nextGamePrize = '2500 TL'
 startTime = datetime.now() + timedelta(seconds = 30)
 interval = 8000
 phoneCodeDict = {}
+gameQuestionIds = [1,2,3,4]
 
-questionDB = {
-        0:{
-            'questionNumber': '1',
-            'question': 'bu birinci soru?',
-            'answer1': '1111',
-            'answer2': '2222',
-            'answer3': '3333',
-            'correctAnswer' : '0' 
-        }, 
-        1:{
-            'questionNumber': '2',
-            'question': 'bu ikinci soru?',
-            'answer1': '1111',
-            'answer2': '2222',
-            'answer3': '3333',
-            'correctAnswer' : '2' 
-        }, 
-        2:{
-            'questionNumber': '3',
-            'question': 'bu ucuncu soru?',
-            'answer1': '1111',
-            'answer2': '2222',
-            'answer3': '3333',
-            'correctAnswer' : '1' 
-        },
-        3:{
-            'questionNumber': '4',
-            'question': 'bu ucuncu soru?',
-            'answer1': '1111',
-            'answer2': '2222',
-            'answer3': '3333',
-            'correctAnswer' : '2' 
-        },
-        4:{
-            'questionNumber': '5',
-            'question': 'bu ucuncu soru?',
-            'answer1': '1111',
-            'answer2': '2222',
-            'answer3': '3333',
-            'correctAnswer' : '1'
-        },
-        5:{
-            'questionNumber': '6',
-            'question': 'bu ucuncu soru?',
-            'answer1': '1111',
-            'answer2': '2222',
-            'answer3': '3333',
-            'correctAnswer' : '0'
-        }
-}
+questionDB = map(Question.query.get, gameQuestionIds)
 
 @app.route('/api/sendvercode', methods = ['POST'])
 def sendverificaton():
@@ -146,11 +98,11 @@ def getQuestion():
     data = {}
     questionNumber = getQuestionNumber() 
 
-    data['questionNumber'] = questionDB[questionNumber]['questionNumber']
-    data['question'] =  questionDB[questionNumber]['question']  
-    data['answer1'] = questionDB[questionNumber]['answer1']
-    data['answer2'] = questionDB[questionNumber]['answer2'] 
-    data['answer3'] = questionDB[questionNumber]['answer3'] 
+    data['questionNumber'] = questionNumber
+    data['question'] =  str(questionDB[questionNumber].question)
+    data['answer1'] = str(questionDB[questionNumber].answer1)
+    data['answer2'] = str(questionDB[questionNumber].answer2)
+    data['answer3'] = str(questionDB[questionNumber].answer3) 
     response = jsonify(data)
     response.status_code = 200
     print('Sending response')
@@ -161,8 +113,8 @@ def getAnswer():
     data = {}
     questionNumber = getQuestionNumber() 
 
-    data['correctAnswer'] = questionDB[questionNumber]['correctAnswer'] 
-    data['questionNumber'] = questionDB[questionNumber]['questionNumber']
+    data['correctAnswer'] = str(questionDB[questionNumber].correctAnswer)
+    data['questionNumber'] = questionNumber
     response = jsonify(data)
     response.status_code = 200
     print('Sending response')

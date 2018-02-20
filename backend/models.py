@@ -1,4 +1,4 @@
-from backend import db, login
+from backend import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -9,3 +9,16 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.username)  
+
+class Question(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    question = db.Column(db.String(280))
+    answer1 = db.Column(db.String(100))
+    answer2 = db.Column(db.String(100))
+    answer3 = db.Column(db.String(100))
+    correctAnswer = db.Column(db.String(2))
+
+    def __repr__(self):
+        return '<Question {}>'.format(self.id)  
+
+

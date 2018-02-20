@@ -61,7 +61,7 @@ exports.navigatedTo = function(args) {
     page = args.object;
     page.bindingContext = questionView;
     
-    answerButtons = [page.getViewById('0'), page.getViewById('1'), page.getViewById('2')];
+    answerButtons = [page.getViewById('1'), page.getViewById('2'), page.getViewById('3')];
 
     timeToStart = page.navigationContext.timeToStart;
     setTimeout(startGame, timeToStart);
