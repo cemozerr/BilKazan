@@ -13,7 +13,7 @@ exports.pageNavigatedTo = function(args) {
 }
 
 exports.onDone = function(args) {
-        codeView.verify()
+    codeView.verify()
         .then(function(response) {
             console.log(response);
             if (response == 'Code Wrong'){
@@ -26,7 +26,7 @@ exports.onDone = function(args) {
                 if (response == 'Access Granted'){
                     appSettings.setString("phonenumber", phone);
                     console.log('inside access granted');
-            	    frameModule.topmost().navigate({
+                    frameModule.topmost().navigate({
                         moduleName: "views/waitgame/waitgame",
                         clearHistory: true,
                         animated: true
@@ -34,9 +34,9 @@ exports.onDone = function(args) {
                 }
                 else {
                     frameModule.topmost().navigate({
-                	moduleName: "views/adduser/adduser",
+                        moduleName: "views/adduser/adduser",
                         context: { phone: phone }
-		    });
+                    });
                 }
             }
         });
@@ -61,11 +61,11 @@ function code(info) {
                 "Content-Type": "application/json"
             }
         })
-        .then((response) => handleErrors(response))
-        .then((response) => response.json())
-        .then((data) => (data.message))
+            .then((response) => handleErrors(response))
+            .then((response) => response.json())
+            .then((data) => (data.message))
     };
-    
+
     return viewModel;
 }
 

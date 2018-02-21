@@ -93,12 +93,12 @@ def login():
     return response 
 
 
-@app.route('/api/getQuestion', methods = ['GET'])
+@app.route('/api/getQuestion', methods = ['POST'])
 def getQuestion():
     data = {}
-    questionNumber = getQuestionNumber() 
+    json = request.get_json()
+    questionNumber = int(json['number'])
 
-    data['questionNumber'] = questionNumber
     data['question'] =  str(questionDB[questionNumber].question)
     data['answer1'] = str(questionDB[questionNumber].answer1)
     data['answer2'] = str(questionDB[questionNumber].answer2)
@@ -108,13 +108,13 @@ def getQuestion():
     print('Sending response')
     return response
 
-@app.route('/api/getAnswer', methods = ['GET'])
+@app.route('/api/getAnswer', methods = ['POST'])
 def getAnswer():
     data = {}
-    questionNumber = getQuestionNumber() 
+    json = request.get_json()
+    questionNumber = int(json['number'])
 
     data['correctAnswer'] = str(questionDB[questionNumber].correctAnswer)
-    data['questionNumber'] = questionNumber
     response = jsonify(data)
     response.status_code = 200
     print('Sending response')
@@ -130,14 +130,3 @@ def timeToStart():
     response.status_code = 200
     print('Sending response')
     return response 
-
-def getQuestionNumber():
-    # time since game started in microseconds
-    timeSinceStart = ((datetime.now() - startTime).total_seconds() * 1000)
-
-    # current question number assuming that each question takes interval seconds 
-    questionNumber = int(timeSinceStart / interval)
-
-    if questionNumber > 5:
-        return 5
-    return questionNumber
