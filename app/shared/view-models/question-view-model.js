@@ -12,7 +12,16 @@ function Question(info) {
         answer1 : info.answer1 || "",
         answer2 : info.answer2 || "",
         answer3 : info.answer3 || ""
-     });
+    });
+
+    viewModel.reset = function() {
+        viewModel.questionNumber = "";
+        viewModel.question = "";
+        viewModel.answer1 = "";
+        viewModel.answer2 = "";
+        viewModel.answer3 = "";
+    }
+
 
     viewModel.getQuestion = function(number){
         return fetchModule.fetch(config.apiUrl + "getQuestion", {
@@ -24,15 +33,15 @@ function Question(info) {
                 "Content-Type": "application/json"
             }
         })        
-        .then((response) => handleErrors(response))
-        .then((response) => response.json())
-        .then(function(response) {
-            viewModel.questionNumber = number;
-            viewModel.question = response.question;
-            viewModel.answer1 = response.answer1;
-            viewModel.answer2 = response.answer2;
-            viewModel.answer3 = response.answer3;
-        });
+            .then((response) => handleErrors(response))
+            .then((response) => response.json())
+            .then(function(response) {
+                viewModel.questionNumber = number;
+                viewModel.question = response.question;
+                viewModel.answer1 = response.answer1;
+                viewModel.answer2 = response.answer2;
+                viewModel.answer3 = response.answer3;
+            });
     };
 
     return viewModel;

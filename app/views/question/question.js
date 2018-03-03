@@ -1,25 +1,4 @@
-// create webSocket connection to server
-const WebSocket = require('nativescript-websockets');
-const ws = new WebSocket('ws://127.0.0.1:8111', {timeout:0});
 var stringify = require('json-stringify-safe');
-
-ws.open();
-
-ws.on('open', function(socket) { 
-    console.log("WebSocket connection established to server"); 
-});
-
-ws.on('close', function(socket){
-    console.log("WebSocket connection lost"); 
-    ws.open();
-});
-
-ws.on('message', function incoming(socket, message) {
-    console.log("Printing message from server:");
-    console.log(message);
-    movePhase();
-});
-
 var QuestionViewModel = require("../../shared/view-models/question-view-model");
 var config = require("../../shared/config");
 var fetchModule = require("fetch");
@@ -46,7 +25,7 @@ exports.changeColor = function(args) {
     answerChosen = 1;
 }
 
-function movePhase(){
+exports.movePhase = function(){
     if (phase == 0){
         showQuestion();
         phase = 1;
@@ -56,6 +35,12 @@ function movePhase(){
         phase = 0;
         questionNumber = questionNumber + 1;
     }
+}
+
+exports.resetGame = function(){
+    questionView.reset();
+    questionNumber = 0;
+    phase = 0;
 }
 
 function showQuestion(){

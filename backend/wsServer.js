@@ -12,12 +12,10 @@ wss.broadcast = function broadcastMsg(msg) {
 };
 
 wss.on("connection", function(ws) {
+    console.log('client connected');
+
     ws.on('message', function incoming(message) {
         console.log('received: %s', message);
-    });
-
-    ws.on('open', function open() {
-        console.log('client connected');
     });
 
     ws.on('close', function close() {
@@ -37,11 +35,19 @@ stdin.setEncoding('utf8');
 
 // on any data into stdin
 stdin.on( 'data', function(key){
-    if (key === '\u0003') {
-        process.exit();
-    }
-    if (key == 'c\n'){
-        wss.broadcast('Continue to next phase');
+    switch (key) {
+        case '\u0003':
+            process.exit();
+            break;
+        case 's\n':
+            wss.broadcast('start');
+            break;
+        case 'm\n':
+            wss.broadcast('move');
+            break;
+        case 'e\n':
+            wss.broadcast('end');
+            break;
     }
 });
 

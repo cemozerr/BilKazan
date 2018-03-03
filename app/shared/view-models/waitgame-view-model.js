@@ -16,7 +16,6 @@ function WaitGame(info) {
      });
 
     viewModel.getData = function(){
-        console.log(appSettings.getString("phonenumber", "No phonenumber saved"));
         return fetchModule.fetch(config.apiUrl + "getWaitGameData",{
             method: "POST",
             body: JSON.stringify({
